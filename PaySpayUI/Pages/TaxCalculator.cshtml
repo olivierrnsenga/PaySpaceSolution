@@ -1,0 +1,24 @@
+﻿@page
+@model TaxCalculatorModel
+
+<h2>Tax Calculator</h2>
+
+<form method="post">
+    <div>
+        <label asp-for="TaxRequest.PostalCode">Postal Code:</label>
+        <input asp-for="TaxRequest.PostalCode"/>
+        <span asp-validation-for="TaxRequest.PostalCode" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="TaxRequest.Income">Income:</label>
+        <input asp-for="TaxRequest.Income"/>
+        <span asp-validation-for="TaxRequest.Income" class="text-danger"></span>
+    </div>
+
+    <input type="submit" value="Calculate"/>
+</form>
+
+@if (Model.CalculatedTax > 0)
+{
+    <p>Calculated Tax: @Model.CalculatedTax</p>
+}
